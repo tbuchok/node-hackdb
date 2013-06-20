@@ -13,5 +13,8 @@
   ],
   "author": "Tom Buchok <tom@buchok.com> (http://buchok.com/)",
   "license": "BSD",
-  "gypfile" : true
+  "gypfile": true,
+  "dependencies": {
+    "restify": "~2.6.0"
+  }
 }

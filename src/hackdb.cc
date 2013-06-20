@@ -30,8 +30,9 @@ Handle<Value> Set(const Arguments& args) {
 Handle<Value> Get(const Arguments& args) {
   HandleScope scope;
   char *key = get(args[0], "");
-  hdb_record *result = hdb_get(db, key);
-  return scope.Close(String::New(result->value));
+  char *result = hdb_get(db, key);
+  if (!result) result = "NULL";
+  return scope.Close(String::New(result));
 }
 
 
