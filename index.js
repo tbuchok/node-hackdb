@@ -21,6 +21,17 @@ server.get('/', function(req, res, next){
   res.end('\n' + message + '\n\n');
 });
 
+server.del('/', function(req, res, next){
+  var message = "Cannot DEL an `undefined` value";
+  var key = Object.keys(req.params)[0];
+  if (key) {
+    hackdb.del(key);
+    var message = 'OK! DEL key: ' + key;
+  }
+  console.log(message);
+  res.end('\n' + message + '\n\n');
+});
+
 server.post('/', function(req, res, next) {
   var message = "Cannot SET an `undefined` value";
   var key = Object.keys(req.params)[0];

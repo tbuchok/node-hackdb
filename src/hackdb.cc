@@ -35,12 +35,21 @@ Handle<Value> Get(const Arguments& args) {
   return scope.Close(String::New(result));
 }
 
+Handle<Value> Del(const Arguments& args) {
+  HandleScope scope;
+  char *key = get(args[0], "");
+  hdb_del(db, key);
+  return scope.Close(String::New(key));
+}
+
 
 void init(Handle<Object> exports) {  
   exports->Set(String::NewSymbol("get"),
       FunctionTemplate::New(Get)->GetFunction());
   exports->Set(String::NewSymbol("set"),
       FunctionTemplate::New(Set)->GetFunction());
+  exports->Set(String::NewSymbol("del"),
+      FunctionTemplate::New(Del)->GetFunction());
 }
 
 NODE_MODULE(hackdb, init)
