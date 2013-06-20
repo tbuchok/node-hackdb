@@ -1,5 +1,8 @@
 # node-hackdb
 
+## Setup
+`$ git submodule update --init # To grab the hackdb source.`
+
 You don't care about your data -> neither do we -- even inside Node.js.
 
 ## Install node-gyp
