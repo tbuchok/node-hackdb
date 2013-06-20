@@ -1,9 +1,14 @@
 var restify = require('restify')
+  , fs = require('fs')
   , server = restify.createServer()
   , hackdb = require('./build/Release/hackdb');
 
 server.use(restify.queryParser({ mapParams: false }));
 server.use(restify.bodyParser());
+
+server.get('/help', function(req, res, next) {
+  fs.createReadStream('README.md').pipe(res);
+});
 
 server.get('/', function(req, res, next){
   var message = "Cannot GET an `undefined` value";

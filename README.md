@@ -2,6 +2,18 @@
 
 You don't care about your data -> neither do we -- even inside Node.js.
 
+## Install node-gyp
+
+```bash
+$ npm install node-gyp -g
+```
+
+## Build the `hackdb` bindings
+
+```bash
+$ node-gyp rebuild
+```
+
 ## Start up the server
 
 ```bash
